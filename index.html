@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StarMuff Skirmish</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div>
+          <p class="eyebrow">starmuff.com</p>
+          <h1>StarMuff Skirmish</h1>
+          <p class="subtitle">
+            A space-age artillery duel inspired by classic scorched battles. Navigate
+            gravity wells, line up plasma shots, and claim the nebula.
+          </p>
+        </div>
+        <div class="status" id="statusPanel">
+          <div class="status-row">
+            <span>Turn</span>
+            <strong id="turnLabel">Solaris</strong>
+          </div>
+          <div class="status-row">
+            <span>Wind Drift</span>
+            <strong id="windLabel">0.0</strong>
+          </div>
+          <div class="status-row">
+            <span>Gravity</span>
+            <strong id="gravityLabel">0.0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="canvas-wrap">
+          <canvas id="battlefield" width="960" height="540" aria-label="Battlefield"></canvas>
+          <div class="legend">
+            <span class="legend-pill sol">Solaris</span>
+            <span class="legend-pill luna">Lunara</span>
+            <span class="legend-pill neutral">Asteroids</span>
+          </div>
+        </section>
+
+        <section class="controls">
+          <div class="controls-inner">
+            <div class="pilot-card" id="pilotCard">
+              <h2>Active Pilot</h2>
+              <p id="pilotName">Solaris Vanguard</p>
+              <div class="health">
+                <span id="solarisHealth">100</span>
+                <div class="health-bar">
+                  <div class="health-fill" id="solarisBar"></div>
+                </div>
+                <span id="lunaraHealth">100</span>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="angle">Turret Angle</label>
+              <input type="range" id="angle" min="10" max="170" value="45" />
+              <div class="value" id="angleValue">45°</div>
+            </div>
+
+            <div class="control-group">
+              <label for="power">Plasma Power</label>
+              <input type="range" id="power" min="20" max="100" value="62" />
+              <div class="value" id="powerValue">62%</div>
+            </div>
+
+            <div class="control-group">
+              <label for="weapon">Payload</label>
+              <select id="weapon">
+                <option value="nova">Nova Burst</option>
+                <option value="comet">Comet Trail</option>
+                <option value="ion">Ion Ripple</option>
+              </select>
+            </div>
+
+            <div class="control-group movement">
+              <label>Micro Thrusters</label>
+              <div class="move-buttons">
+                <button type="button" id="moveLeft">Drift Left</button>
+                <button type="button" id="moveRight">Drift Right</button>
+              </div>
+              <p class="note">Each tap nudges your ship a tiny distance along the terrain.</p>
+            </div>
+
+            <div class="buttons">
+              <button id="fire" class="primary">Fire</button>
+              <button id="reset">Reset Duel</button>
+              <button id="remix">Remix Galaxy</button>
+            </div>
+
+            <div class="tips">
+              <h3>Flight Tips</h3>
+              <ul>
+                <li>Drag the angle and power sliders to arc your shot.</li>
+                <li>Wind drift and gravity vary each round.</li>
+                <li>Asteroids absorb impact but can shield your ship.</li>
+              </ul>
+              <p class="note">Mobile pilots: controls remain within half the screen height so the keyboard never blocks the HUD.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
